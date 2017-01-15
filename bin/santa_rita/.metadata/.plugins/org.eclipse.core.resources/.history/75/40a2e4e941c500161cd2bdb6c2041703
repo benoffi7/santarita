@@ -1,0 +1,87 @@
+package santa_rita;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Datos
+{
+    private static Datos instancia;
+    // Cargados de la base de datos
+    private ArrayList<Item> items;
+    // Seleccionados en el panel
+    private ArrayList<Producto> pedido_cliente;
+
+    public Datos()
+    {
+	items = new ArrayList<Item>();
+	pedido_cliente = new ArrayList<Producto>();
+    }
+
+    public static Datos getInstance()
+    {
+	if (instancia == null)
+	    instancia = new Datos();
+	return instancia;
+    }
+
+    public void addItem(Item item)
+    {
+	items.add(item);
+    }
+
+    public ArrayList<Item> getItems()
+    {
+	return items;
+    }
+
+    public void addProducto_Pedido(Producto producto_pedido)
+    {
+	pedido_cliente.add(producto_pedido);
+    }
+
+    public ArrayList<Producto> getProductos_Pedidos()
+    {
+	return pedido_cliente;
+    }
+
+    public void remove()
+    {
+	pedido_cliente.clear();
+    }
+
+    public void imprimirPedido()
+    {
+	Date fecha = new Date();
+	PrintWriter print = null;
+	File fichero = new File("archivo.txt");
+	try
+	{
+	    print = new PrintWriter(new FileWriter(fichero));
+	    print.write("\tMARISQUERIA SANTA RITA\r\n");
+	    print.write("\t" + fecha.toLocaleString() + "\r\n\r\n");
+	    print.write(" Cant\tCod\tDescripción\r\n\r\n");
+	    for (Producto producto : pedido_cliente)
+	    {
+		    print.write(" " + producto.getCantidad() + " ");
+
+		print.write("\t" + producto.getCodigo() + "\t" + producto.getDescripcion());
+		if (producto.getTiempo())
+		{
+		    print.write("\r\n\t\tPARA DESPUES");
+		}
+		print.write("\r\n----------------------------------\r\n");
+	    }
+	} catch (IOException e)
+	{
+	    e.printStackTrace();
+	} finally
+	{
+	    print.close();
+	}
+
+    }
+}

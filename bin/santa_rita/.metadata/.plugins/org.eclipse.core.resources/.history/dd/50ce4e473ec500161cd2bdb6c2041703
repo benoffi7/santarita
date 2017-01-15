@@ -1,0 +1,56 @@
+package componentes;
+
+import java.awt.Color;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.InputMap;
+import javax.swing.JComboBox;
+import javax.swing.JList;
+import javax.swing.KeyStroke;
+
+public class Combo_Adicionales extends JComboBox<JList>
+{
+    public Combo_Adicionales()
+    {
+	int[] data = { 1, 2, 3, 4, 5, 6 , 7, 8, 9, 10, 11, 12 };
+	JList<int> list = new JList<>(data);
+	list.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+	for (MouseListener mouseListener : list.getMouseListeners())
+	{
+	    list.removeMouseListener(mouseListener);
+	}
+	list.addMouseListener(new MouseAdapter()
+	{
+	    @Override
+	    public void mouseClicked(MouseEvent e)
+	    {
+		int index = list.locationToIndex(e.getPoint());
+		if (list.isSelectedIndex(index))
+		{
+		    list.removeSelectionInterval(index, index);
+		} else
+		{
+		    list.addSelectionInterval(index, index);
+		}
+		list.requestFocusInWindow();
+	    }
+	});
+	InputMap inputMap = list.getInputMap();
+	inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0),
+		inputMap.get(KeyStroke.getKeyStroke(KeyEvent.VK_UP, InputEvent.CTRL_MASK)));
+	inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0),
+		inputMap.get(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, InputEvent.CTRL_MASK)));
+	inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_BACK_SPACE, 0),
+		inputMap.get(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, InputEvent.CTRL_MASK)));
+    }
+
+    public String getSelected()
+    {
+	return getSelected();
+    }
+}

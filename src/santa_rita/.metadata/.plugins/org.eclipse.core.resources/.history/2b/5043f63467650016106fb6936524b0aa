@@ -1,0 +1,33 @@
+import java.util.Date;
+
+import com.taliter.fiscal.device.FiscalDevice;
+import com.taliter.fiscal.device.FiscalDeviceSource;
+import com.taliter.fiscal.device.FiscalPacket;
+import com.taliter.fiscal.device.hasar.HasarConstants;
+import com.taliter.fiscal.device.hasar.HasarFiscalDeviceSource;
+import com.taliter.fiscal.port.serial.SerialFiscalPortSource;
+import com.taliter.fiscal.util.LoggerFiscalDeviceEventHandler;
+
+public class FiscalPrinter implements HasarConstants
+{
+    public static void main(String[] args) throws Exception
+    {
+	FiscalDeviceSource deviceSource = new HasarFiscalDeviceSource(new SerialFiscalPortSource("COM3"));
+	FiscalDevice device = deviceSource.getFiscalDevice();
+	device.setEventHandler(new LoggerFiscalDeviceEventHandler(System.out));
+	device.open();
+
+	try
+	{
+	    FiscalPacket request = device.createFiscalPacket();
+	    request.setCommandCode(CMD_GET_DATE_TIME);
+	    FiscalPacket response = device.execute(request);
+	    Date date = response.getDateAndTime(3, 4);
+
+	    System.out.println("Date: " + date);
+	} finally
+	{
+	    device.close();
+	} // Close the device.
+    }
+}

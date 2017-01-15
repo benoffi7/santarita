@@ -1,0 +1,18 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public final class Utils
+{
+    // Separador de campos
+    public final static String FS = Character.toString((char) 28);
+    // Tipos de comprobantes fiscales
+    public final static Map<String, String> fiscalReceipt = new HashMap<String, String>() { {
+	put("FACTURA_A", "A");
+    } };
+    // Codigo del comando openFiscalReceipt
+    public final static String openFiscalReceipt = Character.toString((char) 64);
+    // Codigo del comando printFiscalText
+    public final static String printFiscalText = Character.toString((char) 65);
+    // Codigo del comando printLineItem
+    public final static String printLineItem = Character.toString((char) 66);
+}

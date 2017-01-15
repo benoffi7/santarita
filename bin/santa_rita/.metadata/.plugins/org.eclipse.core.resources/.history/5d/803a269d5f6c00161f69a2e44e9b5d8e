@@ -1,0 +1,12 @@
+
+public final class Utils
+{
+    // Separador de campos para el string de comandos
+    public final static String FS = Character.toString((char) 28);
+    // Codigo del comando openFiscalReceipt
+    public final static String openFiscalReceipt = Character.toString((char) 64);
+    // Codigo del comando printFiscalText
+    public final static String printFiscalText = Character.toString((char) 65);
+    // Codigo del comando printLineItem
+    public final static String printLineItem = Character.toString((char) 66);
+}

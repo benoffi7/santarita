@@ -1,0 +1,13 @@
+import java.io.IOException;
+
+public class Main
+{
+
+    public static void main(String[] args) throws IOException
+    {
+	FiscalPrinter fiscalPrinter = new FiscalPrinter();
+	fiscalPrinter.printFiscalText("Hola hola");
+	fiscalPrinter.printLineItem("Agua", 2, 5.0);
+    }
+
+}

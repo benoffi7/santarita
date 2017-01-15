@@ -1,0 +1,40 @@
+package componentes;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JRadioButton;
+
+import santa_rita.Item;
+import utilidades.Apariencia;
+
+public class Item_De_Compra extends JComponent
+{
+    private JCheckBox descripcion;
+    private JComboBox cantidad;
+    private JButton adicionales;
+
+    public Item_De_Compra(Item desc)
+    {
+	setBackground(Apariencia.background_paneles);
+
+	this.descripcion = new JCheckBox();
+	this.descripcion.setText(desc.getId() + " - " + desc.getDescripcion());
+	add(descripcion);
+
+	this.cantidad = new JComboBox<>();
+	this.cantidad.setModel(new DefaultComboBoxModel<String>(
+		new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "1/2" }));
+
+	add(cantidad);
+
+	JButton btn_adicionales = new JButton("Adicionales");
+	add(btn_adicionales);
+
+	JRadioButton btn_despues = new JRadioButton("");
+	add(btn_despues);
+    }
+
+}

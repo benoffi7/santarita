@@ -1,0 +1,31 @@
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Enumeration;
+
+import javax.comm.CommPortIdentifier;
+import javax.comm.PortInUseException;
+import javax.comm.SerialPort;
+import javax.comm.UnsupportedCommOperationException;
+
+public class FiscalPrinter
+{
+    public static void main(String args[]) {
+	Enumeration ports = CommPortIdentifier.getPortIdentifiers();
+	while (ports.hasMoreElements()) {
+	CommPortIdentifier port = (CommPortIdentifier)ports.nextElement();
+	String type;
+	switch (port.getPortType()) {
+	case CommPortIdentifier.PORT_PARALLEL:
+	type = "Parallel"; 
+	break;
+	case CommPortIdentifier.PORT_SERIAL:
+	type = "Serial"; 
+	break;
+	default: /// Shouldn't happen
+	type = "Unknown"; 
+	break;
+	}
+	System.out.println(port.getName() + ": " + type);
+	}
+	}
+}

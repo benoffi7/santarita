@@ -1,0 +1,93 @@
+package componentes;
+
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.SwingConstants;
+
+import formularios.Panel_Adicionales;
+import santa_rita.Item;
+import santa_rita.Producto;
+import utilidades.Apariencia;
+
+public class Item_De_Compra extends JPanel
+{
+    private Item item;
+    private JCheckBox descripcion;
+    private JComboBox<Integer> cantidad;
+    private JRadioButton btn_media_porcion;
+    private JButton btn_adicionales;
+    private JRadioButton btn_despues;
+
+    public Item_De_Compra(Item prod)
+    {
+	setBackground(Apariencia.background_amarillo);
+	setLayout(new GridLayout(1, 4, 1, 0));
+
+	this.item = prod;
+	this.descripcion = new JCheckBox();
+	descripcion.addActionListener(new ActionListener()
+	{
+	    @Override
+	    public void actionPerformed(ActionEvent arg0)
+	    {
+		item.setSelected(descripcion.isSelected());
+	    }
+	});
+	descripcion.setHorizontalAlignment(SwingConstants.LEFT);
+	this.descripcion.setText(item.getId() + " - " + item.getDescripcion());
+	add(descripcion);
+
+	this.cantidad = new JComboBox<Integer>();
+	this.cantidad.setModel(new DefaultComboBoxModel(new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 }));
+	cantidad.addActionListener(new ActionListener()
+	{
+	    @Override
+	    public void actionPerformed(ActionEvent arg0)
+	    {
+		descripcion.setSelected(true);
+	    }
+	});
+	add(cantidad);
+
+	btn_media_porcion = new JRadioButton("Media porción");
+	add(btn_media_porcion);
+
+	btn_adicionales = new JButton("Seleccionar adicionales..");
+	btn_adicionales.addActionListener(new ActionListener()
+	{
+	    @Override
+	    public void actionPerformed(ActionEvent e)
+	    {
+		new Panel_Adicionales((Integer) cantidad.getSelectedItem());
+	    }
+
+	});
+	add(btn_adicionales);
+
+	btn_despues = new JRadioButton("");
+	btn_despues.setHorizontalAlignment(SwingConstants.LEFT);
+	add(btn_despues);
+    }
+
+    public boolean isSelected()
+    {
+	return item.isSelected();
+    }
+
+    public Producto getSelected()
+    {
+	Producto seleccionado = new Producto();
+	seleccionado.setItem(item);
+	seleccionado.setCantidad((Integer) cantidad.getSelectedItem());
+	seleccionado.setTiempo(btn_despues.isSelected());
+	return seleccionado;
+    }
+}

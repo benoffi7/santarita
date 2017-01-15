@@ -1,0 +1,18 @@
+import java.io.IOException;
+
+public class Main
+{
+
+    public static void main(String[] args)
+    {
+	FiscalPrinter fiscalPrinter = new FiscalPrinter();
+	try
+	{
+	    fiscalPrinter.openFiscalReceipt();
+	} catch (IOException e)
+	{
+	    System.out.println("ERROR");
+	}
+    }
+
+}

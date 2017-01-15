@@ -1,0 +1,8 @@
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:Adicionista,org.eclipse.launchbar.core.descriptorType.default\:FiscalPrinter,org.eclipse.launchbar.core.descriptorType.default\:Main (1),org.eclipse.launchbar.core.descriptorType.default\:Main,org.eclipse.launchbar.core.descriptorType.default\:Prueba,org.eclipse.launchbar.core.descriptorType.default\:Santa_Rita
+eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:Adicionista/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:Adicionista/activeLaunchTarget=org.eclipse.remote.LocalServices\:Local
+org.eclipse.launchbar.core.descriptorType.default\:FiscalPrinter/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:FiscalPrinter/activeLaunchTarget=org.eclipse.remote.LocalServices\:Local
+org.eclipse.launchbar.core.descriptorType.default\:Main/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:Main/activeLaunchTarget=org.eclipse.remote.LocalServices\:Local
