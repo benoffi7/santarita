@@ -15,8 +15,7 @@ public class Monitor implements Runnable
     private Thread hilo;
     private WatchService wService;
     private WatchKey key;
-    Path directoryPath = Paths.get("C:/Users/Maica/workspace/SANTA_RITA");
-
+    //Path directoryPath = Paths.get("C:/Users/Maica/workspace/SANTA_RITA");
     public Monitor() throws Exception
     {
 	wService = FileSystems.getDefault().newWatchService();

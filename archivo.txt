@@ -1,10 +1,8 @@
 	MARISQUERIA SANTA RITA
-	15/01/2017 19:07:05
+	15-ene-2017 20:44:29
 
  Cant	Cod	Descripción
 
-  3 	181	Mejillones a la Recanatti
+  1 	19	Cazuela de mariscos
 		Manteca
-		Salsa de verdeo
-		Salsa de verdeo
 ----------------------------------
