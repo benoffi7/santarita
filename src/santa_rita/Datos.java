@@ -154,11 +154,9 @@ public class Datos
 		{
 		    print.write("  " + producto.getCantidad() + " ");
 		    print.write("\t" + producto.getCodigo() + "\t" + producto.getDescripcion());
-		    int cant = 0;
-		    while (cant < producto.getCantidad())
+		    for (String ad : producto.getAdicionales())
 		    {
-			print.write("\r\n\t\t" + producto.getAdicionales().get(cant));
-			cant++;
+			print.write("\r\n\t" + ad);
 		    }
 		}
 		if (producto.isParaDespues())
