@@ -1,9 +1,10 @@
 package santa_rita;
 
-import java.io.File;
-import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -87,15 +88,14 @@ public class DB
 	    salida += consulta.getInt("precio") + ";";
 	    salida += "##";
 	}
-	PrintWriter print = null;
-	File fichero = new File("C:\\xampp\\htdocs\\productos.txt");
+	Writer out = new BufferedWriter(
+		new OutputStreamWriter(new FileOutputStream("C:\\xampp\\htdocs\\productos.txt"), "UTF-8"));
 	try
 	{
-	    print = new PrintWriter(new FileWriter(fichero));
-	    print.write(salida);
+	    out.write(salida);
 	} finally
 	{
-	    print.close();
+	    out.close();
 	}
     }
 }
