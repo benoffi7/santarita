@@ -46,7 +46,7 @@ public class ProcessConnectionThread implements Runnable
 		{
 		    producto.setCantidad(Integer.parseInt(campos[1]));
 		}
-		producto.setTiempo(true);
+		producto.setTiempo(false);
 
 		if (!campos[2].equals("0"))
 		{
