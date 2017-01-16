@@ -1,5 +1,9 @@
 package santa_rita;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -71,4 +75,27 @@ public class DB
 	}
     }
 
+    public void crearArchivo() throws SQLException, IOException
+    {
+	String salida = "";
+	ResultSet consulta = statement.executeQuery("SELECT * FROM `productos`");
+	while (consulta.next())
+	{
+	    salida += consulta.getInt("adicional") + ";";
+	    salida += consulta.getString("codigo") + ";";
+	    salida += consulta.getString("nombre") + ";";
+	    salida += consulta.getInt("precio") + ";";
+	    salida += "##";
+	}
+	PrintWriter print = null;
+	File fichero = new File("datos.txt");
+	try
+	{
+	    print = new PrintWriter(new FileWriter(fichero));
+	    print.write(salida);
+	} finally
+	{
+	    print.close();
+	}
+    }
 }
