@@ -57,4 +57,18 @@ public class DB
 	}
     }
 
+    public void getAdicionales() throws SQLException
+    {
+	ResultSet consulta = statement.executeQuery("SELECT * FROM `productos` WHERE `adicional` = 1");
+	while (consulta.next())
+	{
+	    Item nuevo = new Item();
+	    nuevo.setCodigo(consulta.getInt("codigo"));
+	    nuevo.setDescripcion(consulta.getString("nombre"));
+	    nuevo.setPrecio(consulta.getInt("precio"));
+	    nuevo.setCategoria(consulta.getString("categoria"));
+	    Datos.getInstance().addAdicional(nuevo);
+	}
+    }
+
 }

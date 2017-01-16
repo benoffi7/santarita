@@ -1,13 +1,14 @@
 package santa_rita;
+
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardWatchEventKinds;
 import java.nio.file.WatchEvent;
+import java.nio.file.WatchEvent.Kind;
 import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
-import java.nio.file.WatchEvent.Kind;
 import java.util.List;
 
 public class Monitor implements Runnable
@@ -15,7 +16,7 @@ public class Monitor implements Runnable
     private Thread hilo;
     private WatchService wService;
     private WatchKey key;
-    Path directoryPath = Paths.get("C:/Users/Maica/workspace/SANTA_RITA");
+    Path directoryPath = Paths.get("C:/Users/Maica/Documents/GitHub/santarita");
 
     public Monitor() throws Exception
     {
@@ -50,7 +51,7 @@ public class Monitor implements Runnable
 	    System.out.println(String.format("Return value from key.reset() : %s", valid));
 	}
     }
-    
+
     @Override
     public void run()
     {
@@ -65,13 +66,15 @@ public class Monitor implements Runnable
 	} catch (Exception e)
 	{
 	    System.out.println("Error en el monitoreo...");
-	}	
+	}
     }
-    
-    public void start () {
+
+    public void start()
+    {
 	System.out.println("Iniciando monitoreo...");
-	if (hilo == null) {
-	    hilo = new Thread (this);
+	if (hilo == null)
+	{
+	    hilo = new Thread(this);
 	    hilo.start();
 	}
     }

@@ -54,6 +54,16 @@ public class Datos
 	return retorno;
     }
 
+    public void addAdicional(Item item)
+    {
+	adicionales.add(item);
+    }
+
+    public ArrayList<Item> getAdicionales()
+    {
+	return adicionales;
+    }
+
     public Item searchAdicional(int codigo)
     {
 	Item retorno = null;
@@ -65,16 +75,6 @@ public class Datos
 	    }
 	}
 	return retorno;
-    }
-
-    public void addAdicional(Item item)
-    {
-	adicionales.add(item);
-    }
-
-    public ArrayList<Item> getAdicionales()
-    {
-	return adicionales;
     }
 
     public void addProducto_Pedido(Producto producto_pedido)
@@ -113,11 +113,9 @@ public class Datos
 		{
 		    print.write("  " + producto.getCantidad() + " ");
 		    print.write("\t" + producto.getCodigo() + "\t" + producto.getDescripcion());
-		    int cant = 0;
-		    while (cant < producto.getCantidad())
+		    for (String ad : producto.getAdicionales())
 		    {
-			print.write("\r\n\t\t" + producto.getAdicionales().get(cant));
-			cant++;
+			print.write("\r\n\t" + ad);
 		    }
 		}
 		if (producto.isParaDespues())
