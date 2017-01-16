@@ -84,8 +84,8 @@ public class Producto
 	this.adicionales.add(adicional);
     }
 
-    public void addAdicionales(ArrayList<String> adicionales)
+    public void addAdicionales(ArrayList<String> adicional)
     {
-	this.adicionales.addAll(adicionales);
+	this.adicionales.addAll(adicional);
     }
 }
