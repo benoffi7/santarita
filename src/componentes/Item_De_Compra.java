@@ -116,6 +116,11 @@ public class Item_De_Compra extends JPanel
 	return item.isSelected();
     }
 
+    public void setSelected(boolean valor)
+    {
+	item.setSelected(valor);
+    }
+
     public Producto getSelected()
     {
 	Producto seleccionado = new Producto();

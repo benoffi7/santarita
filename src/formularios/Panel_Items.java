@@ -54,4 +54,12 @@ public class Panel_Items extends JPanel
 	    }
 	}
     }
+
+    public void clear()
+    {
+	for (Item_De_Compra item : items_adicionista)
+	{
+	    item.setSelected(false);
+	}
+    }
 }

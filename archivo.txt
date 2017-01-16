@@ -1,8 +1,17 @@
 	MARISQUERIA SANTA RITA
-	15-ene-2017 20:44:29
+	16/01/2017 11:14:00
 
  Cant	Cod	Descripción
 
-  1 	19	Cazuela de mariscos
-		Manteca
+  5 	124	Canelones de atún
+	1001 - Manteca
+	--- - Sin adicional
+	--- - Sin adicional
+	1003 - Provenzal
+	--- - Sin adicional
+----------------------------------
+  1 	39	Pizza de pescado
+----------------------------------
+  1 	26	Arroz blanco
+	1000 - Fileto
 ----------------------------------
