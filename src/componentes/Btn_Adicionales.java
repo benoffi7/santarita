@@ -60,4 +60,9 @@ public class Btn_Adicionales extends JButton
     {
 	return adicionales;
     }
+
+    public void clear()
+    {
+	adicionales.clear();
+    }
 }

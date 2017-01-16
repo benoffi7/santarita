@@ -59,7 +59,7 @@ public class Panel_Items extends JPanel
     {
 	for (Item_De_Compra item : items_adicionista)
 	{
-	    item.setSelected(false);
+	    item.clear();
 	}
     }
 }

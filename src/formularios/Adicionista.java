@@ -88,5 +88,18 @@ public class Adicionista extends JPanel
     {
 	Datos.getInstance().imprimirPedido();
 	Datos.getInstance().remove();
+	clear();
+    }
+
+    private void clear()
+    {
+	platos_calientes.clear();
+	platos_frios.clear();
+	platos_plancha.clear();
+	platos_frituras.clear();
+	platos_ensaladas.clear();
+	platos_otros.clear();
+	platos_celiacos.clear();
+	platos_postres.clear();
     }
 }

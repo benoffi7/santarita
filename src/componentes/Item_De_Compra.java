@@ -19,6 +19,7 @@ import utilidades.Apariencia;
 
 public class Item_De_Compra extends JPanel
 {
+    private boolean clear_all;
     private Item item;
     private JCheckBox descripcion;
     private JComboBox<Integer> cantidad;
@@ -29,7 +30,7 @@ public class Item_De_Compra extends JPanel
     public Item_De_Compra(Item prod)
     {
 	setBackground(Apariencia.background_amarillo);
-
+	clear_all = false;
 	item = prod;
 	GridBagLayout gridBagLayout = new GridBagLayout();
 	gridBagLayout.columnWidths = new int[] { 250, 40, 40, 75, 100 };
@@ -44,6 +45,7 @@ public class Item_De_Compra extends JPanel
 	    public void actionPerformed(ActionEvent arg0)
 	    {
 		item.setSelected(descripcion.isSelected());
+		clear_all = false;
 	    }
 	});
 	descripcion.setHorizontalAlignment(SwingConstants.LEFT);
@@ -63,8 +65,9 @@ public class Item_De_Compra extends JPanel
 	    @Override
 	    public void actionPerformed(ActionEvent arg0)
 	    {
-		descripcion.setSelected(true);
 		item.setSelected(descripcion.isSelected());
+		if (!clear_all)
+		    descripcion.setSelected(true);
 	    }
 	});
 	GridBagConstraints gbc_cantidad = new GridBagConstraints();
@@ -116,11 +119,6 @@ public class Item_De_Compra extends JPanel
 	return item.isSelected();
     }
 
-    public void setSelected(boolean valor)
-    {
-	item.setSelected(valor);
-    }
-
     public Producto getSelected()
     {
 	Producto seleccionado = new Producto();
@@ -130,5 +128,15 @@ public class Item_De_Compra extends JPanel
 	seleccionado.setTiempo(btn_despues.isSelected());
 	seleccionado.addAdicionales(btn_adicionales.getAdicionales());
 	return seleccionado;
+    }
+
+    public void clear()
+    {
+	clear_all = true;
+	descripcion.setSelected(false);
+	cantidad.setSelectedIndex(0);
+	btn_media_porcion.setSelected(false);
+	btn_despues.setSelected(false);
+	btn_adicionales.clear();
     }
 }
