@@ -11,6 +11,7 @@ public class Principal
 	UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
 	DB.getInstance().getDatos();
 	DB.getInstance().getAdicionales();
+	DB.getInstance().crearArchivo();
 	Monitor hilo1 = new Monitor();
 	Santa_Rita hilo2 = new Santa_Rita();
 	Thread waitThread = new Thread(new WaitThread());

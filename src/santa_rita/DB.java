@@ -88,7 +88,7 @@ public class DB
 	    salida += "##";
 	}
 	PrintWriter print = null;
-	File fichero = new File("productos.txt");
+	File fichero = new File("C:\\xampp\\htdocs\\productos.txt");
 	try
 	{
 	    print = new PrintWriter(new FileWriter(fichero));
