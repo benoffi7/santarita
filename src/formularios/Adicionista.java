@@ -70,6 +70,12 @@ public class Adicionista extends JPanel
 	    {
 		platos_calientes.getPedidos();
 		platos_frios.getPedidos();
+		platos_plancha.getPedidos();
+		platos_frituras.getPedidos();
+		platos_ensaladas.getPedidos();
+		platos_otros.getPedidos();
+		platos_celiacos.getPedidos();
+		platos_postres.getPedidos();
 		print();
 	    }
 	});
