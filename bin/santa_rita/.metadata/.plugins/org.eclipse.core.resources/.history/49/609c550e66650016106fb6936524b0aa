@@ -1,6 +1,0 @@
-import com.taliter.fiscal.device.hasar.HasarConstants;
-
-public class FiscalPrinter implements HasarConstants
-{
-
-}

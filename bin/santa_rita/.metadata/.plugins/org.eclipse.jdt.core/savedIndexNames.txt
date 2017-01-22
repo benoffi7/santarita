@@ -1,3 +1,0 @@
-INDEX VERSION 1.127+C:\Users\Maica\workspace\.metadata\.plugins\org.eclipse.jdt.core
-2717570092.index
-3596669080.index

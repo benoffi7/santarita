@@ -15,7 +15,7 @@ public class ComboAdicionales extends JComboBox<String>
 	addItem("--- - Sin adicional");
 	for (Item item : ad)
 	{
-	    super.addItem(item.getId() + " - " + item.getDescripcion());
+	    super.addItem(item.getCodigo() + " - " + item.getDescripcion());
 	}
 	setMaximumRowCount(15);
     }

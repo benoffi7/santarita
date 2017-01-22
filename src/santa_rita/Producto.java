@@ -26,7 +26,7 @@ public class Producto
 
     public int getCodigo()
     {
-	return item.getId();
+	return item.getCodigo();
     }
 
     public String getDescripcion()

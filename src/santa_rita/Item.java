@@ -5,16 +5,18 @@ public class Item
     private boolean selected;
     private int codigo;
     private String descripcion;
-    private float precio;
+    private int precio;
     private String categoria;
+    private boolean adicional;
 
-    public Item(int codigo, String descripcion, float precio, String categoria)
+    public Item(int codigo, String descripcion, int precio, String categoria, boolean adicional)
     {
 	this.selected = false;
 	this.codigo = codigo;
 	this.descripcion = descripcion;
 	this.precio = precio;
 	this.categoria = categoria;
+	this.adicional = adicional;
     }
 
     public Item()
@@ -26,7 +28,7 @@ public class Item
 	return selected;
     }
 
-    public int getId()
+    public int getCodigo()
     {
 	return codigo;
     }
@@ -36,7 +38,7 @@ public class Item
 	return descripcion;
     }
 
-    public float getPrecio()
+    public int getPrecio()
     {
 	return precio;
     }
@@ -44,6 +46,11 @@ public class Item
     public String getCategoria()
     {
 	return categoria;
+    }
+
+    public boolean isAdicional()
+    {
+	return adicional;
     }
 
     public void setSelected(boolean valor)
@@ -61,7 +68,7 @@ public class Item
 	this.descripcion = descripcion;
     }
 
-    public void setPrecio(float precio)
+    public void setPrecio(int precio)
     {
 	this.precio = precio;
     }
@@ -69,6 +76,11 @@ public class Item
     public void setCategoria(String categoria)
     {
 	this.categoria = categoria;
+    }
+
+    public void setAdicional(boolean valor)
+    {
+	adicional = valor;
     }
 
     @Override

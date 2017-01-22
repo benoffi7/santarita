@@ -46,7 +46,7 @@ public class Datos
 	Item retorno = null;
 	for (Item item : items)
 	{
-	    if (item.getId() == codigo)
+	    if (item.getCodigo() == codigo)
 	    {
 		retorno = item;
 	    }
@@ -69,7 +69,7 @@ public class Datos
 	Item retorno = null;
 	for (Item item : items)
 	{
-	    if (item.getId() == codigo)
+	    if (item.getCodigo() == codigo)
 	    {
 		retorno = item;
 	    }
@@ -89,6 +89,13 @@ public class Datos
 
     public void remove()
     {
+	pedido_cliente.clear();
+    }
+
+    public void removeAll()
+    {
+	items.clear();
+	adicionales.clear();
 	pedido_cliente.clear();
     }
 

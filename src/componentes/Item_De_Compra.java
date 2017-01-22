@@ -49,7 +49,7 @@ public class Item_De_Compra extends JPanel
 	    }
 	});
 	descripcion.setHorizontalAlignment(SwingConstants.LEFT);
-	descripcion.setText(item.getId() + " - " + item.getDescripcion());
+	descripcion.setText(item.getCodigo() + " - " + item.getDescripcion());
 	GridBagConstraints gbc_descripcion = new GridBagConstraints();
 	gbc_descripcion.fill = GridBagConstraints.BOTH;
 	gbc_descripcion.insets = new Insets(0, 0, 0, 5);
