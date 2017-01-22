@@ -9,14 +9,18 @@ import formularios.Santa_Rita;
 
 public class Principal
 {
+    private static Monitor hilo1;
+    private static Santa_Rita hilo2;
+    private static Thread hilo3;
+
     public static void main(String[] args) throws Exception, Exception, Exception, Exception
     {
 	UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
 	getDatos();
-	Monitor hilo1 = new Monitor();
-	Santa_Rita hilo2 = new Santa_Rita();
-	Thread waitThread = new Thread(new WaitThread());
-	waitThread.start();
+	hilo1 = new Monitor();
+	hilo2 = new Santa_Rita();
+	hilo3 = new Thread(new WaitThread());
+	hilo3.start();
 	hilo2.start();
 	hilo1.start();
     }
@@ -27,5 +31,11 @@ public class Principal
 	DB.getInstance().getDatos();
 	DB.getInstance().getAdicionales();
 	DB.getInstance().crearArchivo();
+    }
+
+    public static void restart() throws Exception
+    {
+	hilo2.dispose();
+	hilo2 = new Santa_Rita();
     }
 }

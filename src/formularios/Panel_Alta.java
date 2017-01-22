@@ -39,6 +39,7 @@ public class Panel_Alta extends JPanel
     private JLabel lblCate;
     private JComboBox<String> categoria;
     private JCheckBox adicional;
+    private JButton btnRefrescar;
 
     public Panel_Alta()
     {
@@ -51,15 +52,33 @@ public class Panel_Alta extends JPanel
 			FormSpecs.PARAGRAPH_GAP_ROWSPEC, RowSpec.decode("50px"), FormSpecs.PARAGRAPH_GAP_ROWSPEC,
 			RowSpec.decode("50px"), FormSpecs.PARAGRAPH_GAP_ROWSPEC, RowSpec.decode("50px"),
 			FormSpecs.PARAGRAPH_GAP_ROWSPEC, RowSpec.decode("50px"), FormSpecs.PARAGRAPH_GAP_ROWSPEC,
-			RowSpec.decode("50px"), });
+			RowSpec.decode("50px"), FormSpecs.PARAGRAPH_GAP_ROWSPEC, RowSpec.decode("50px"), });
 	setLayout(fl_panel);
 	setBackground(Apariencia.background_amarillo);
 
+	btnRefrescar = new JButton("Refrescar los cambios");
+	add(btnRefrescar, "3, 3");
+	btnRefrescar.setEnabled(false);
+	btnRefrescar.addActionListener(new ActionListener()
+	{
+	    @Override
+	    public void actionPerformed(ActionEvent e)
+	    {
+		try
+		{
+		    Principal.restart();
+		} catch (Exception e1)
+		{
+		    JOptionPane.showMessageDialog(Panel_Alta.this, e1.getMessage());
+		}
+	    }
+	});
+
 	lblCodigo = new JLabel("Código: ");
-	add(lblCodigo, "1, 3");
+	add(lblCodigo, "1, 5");
 
 	codigo = new JTextField();
-	add(codigo, "3, 3");
+	add(codigo, "3, 5");
 	codigo.setColumns(10);
 	codigo.addKeyListener(new KeyAdapter()
 	{
@@ -74,10 +93,10 @@ public class Panel_Alta extends JPanel
 	});
 
 	lblDescripcion = new JLabel("Descripción: ");
-	add(lblDescripcion, "1, 5");
+	add(lblDescripcion, "1, 7");
 
 	descripcion = new JTextField();
-	add(descripcion, "3, 5");
+	add(descripcion, "3, 7");
 	descripcion.setColumns(20);
 	descripcion.addKeyListener(new KeyAdapter()
 	{
@@ -92,10 +111,10 @@ public class Panel_Alta extends JPanel
 	});
 
 	lblPrecio = new JLabel("Precio: ");
-	add(lblPrecio, "1, 7");
+	add(lblPrecio, "1, 9");
 
 	precio = new JTextField();
-	add(precio, "3, 7");
+	add(precio, "3, 9");
 	precio.setColumns(10);
 	precio.addKeyListener(new KeyAdapter()
 	{
@@ -110,19 +129,19 @@ public class Panel_Alta extends JPanel
 	});
 
 	lblCate = new JLabel("Categoría");
-	add(lblCate, "1, 9");
+	add(lblCate, "1, 11");
 
 	String[] cate = { "Platos calientes", "Platos fríos", "Frituras", "A la plancha", "Ensaladas", "Otros platos",
 		"Postres", "Salsas" };
 	categoria = new JComboBox<String>(cate);
-	add(categoria, "3, 9");
+	add(categoria, "3, 11");
 
 	adicional = new JCheckBox();
 	adicional.setText("Adicional");
-	add(adicional, "3, 11");
+	add(adicional, "3, 13");
 
 	JButton btnConfirmar = new JButton("Confirmar");
-	add(btnConfirmar, "3, 13");
+	add(btnConfirmar, "3, 15");
 	btnConfirmar.addActionListener(new ActionListener()
 	{
 
@@ -142,6 +161,7 @@ public class Panel_Alta extends JPanel
 		    {
 			JOptionPane.showMessageDialog(Panel_Alta.this, "Error el actualizar la base de datos");
 		    }
+		    btnRefrescar.setEnabled(true);
 		} else
 		    JOptionPane.showMessageDialog(Panel_Alta.this, "Codigo de producto repetido");
 	    }

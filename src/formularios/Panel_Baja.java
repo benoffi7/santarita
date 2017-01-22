@@ -43,6 +43,7 @@ public class Panel_Baja extends JPanel
     private JLabel lblCate;
     private JComboBox<String> categoria;
     private JCheckBox adicional;
+    private JButton btnRefrescar;
     private JButton btnModificar;
     private JButton btnEliminar;
 
@@ -54,6 +55,7 @@ public class Panel_Baja extends JPanel
 	setBackground(Apariencia.background_amarillo);
 	FormLayout fl_panel = new FormLayout(
 		new ColumnSpec[] { ColumnSpec.decode("right:300px"), ColumnSpec.decode("left:3dlu"),
+			ColumnSpec.decode("left:300px"), ColumnSpec.decode("left:3dlu"),
 			ColumnSpec.decode("left:300px"), },
 		new RowSpec[] { RowSpec.decode("50px"), FormSpecs.PARAGRAPH_GAP_ROWSPEC, RowSpec.decode("50px"),
 			FormSpecs.PARAGRAPH_GAP_ROWSPEC, RowSpec.decode("50px"), FormSpecs.PARAGRAPH_GAP_ROWSPEC,
@@ -76,6 +78,24 @@ public class Panel_Baja extends JPanel
 		clear();
 		busqueda.setText("");
 		busqueda.setEnabled(true);
+	    }
+	});
+
+	btnRefrescar = new JButton("Refrescar los cambios");
+	add(btnRefrescar, "5,1");
+	btnRefrescar.setEnabled(false);
+	btnRefrescar.addActionListener(new ActionListener()
+	{
+	    @Override
+	    public void actionPerformed(ActionEvent e)
+	    {
+		try
+		{
+		    Principal.restart();
+		} catch (Exception e1)
+		{
+		    JOptionPane.showMessageDialog(Panel_Baja.this, e1.getMessage());
+		}
 	    }
 	});
 
@@ -220,6 +240,7 @@ public class Panel_Baja extends JPanel
 			{
 			    JOptionPane.showMessageDialog(Panel_Baja.this, "Error el actualizar la base de datos");
 			}
+			btnRefrescar.setEnabled(true);
 		    } else
 			JOptionPane.showMessageDialog(Panel_Baja.this, "Codigo de producto repetido");
 		} else

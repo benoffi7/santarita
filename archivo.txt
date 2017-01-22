@@ -1,7 +1,9 @@
 	MARISQUERIA SANTA RITA
-	16/01/2017 12:11:04
+	22/01/2017 19:24:31
 
  Cant	Cod	Descripción
 
-  1/2 	221	Arroz con chipirones
+  4 	8	Langostinos Pelados
+----------------------------------
+  1 	47	Zanahoria
 ----------------------------------
