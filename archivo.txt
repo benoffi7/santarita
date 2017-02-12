@@ -1,9 +1,10 @@
 	MARISQUERIA SANTA RITA
-	22/01/2017 19:24:31
+	12-feb-2017 16:23:46
 
  Cant	Cod	Descripción
 
-  4 	8	Langostinos Pelados
+  1 	19	Cazuela De Mariscos
+		PARA DESPUES
 ----------------------------------
-  1 	47	Zanahoria
+  1/2 	257	Cazuela De Pulpo
 ----------------------------------

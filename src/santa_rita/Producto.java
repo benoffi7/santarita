@@ -88,4 +88,12 @@ public class Producto
     {
 	this.adicionales.addAll(adicional);
     }
+
+    public boolean isCeliaco()
+    {
+	if (item.getCategoria().equals("Celiaco"))
+	    return true;
+	else
+	    return false;
+    }
 }

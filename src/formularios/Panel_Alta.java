@@ -85,7 +85,7 @@ public class Panel_Alta extends JPanel
 	    public void keyTyped(KeyEvent e)
 	    {
 		char caracter = e.getKeyChar();
-		if (!Character.isDigit(caracter))
+		if (!Character.isDigit(caracter) || (codigo.getText().length() > 6))
 		{
 		    e.consume();
 		}
@@ -121,7 +121,7 @@ public class Panel_Alta extends JPanel
 	    public void keyTyped(KeyEvent e)
 	    {
 		char caracter = e.getKeyChar();
-		if (!Character.isDigit(caracter))
+		if (!Character.isDigit(caracter) || (precio.getText().length() > 6))
 		{
 		    e.consume();
 		}

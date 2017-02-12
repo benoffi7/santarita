@@ -1,11 +1,14 @@
 package santa_rita;
 
+import java.awt.Desktop;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import javax.microedition.io.StreamConnection;
+import javax.swing.JOptionPane;
 
 public class ProcessConnectionThread implements Runnable
 {
@@ -61,6 +64,15 @@ public class ProcessConnectionThread implements Runnable
 		pps.add(producto);
 	    }
 	    Datos.getInstance().imprimirPPS(pps);
+	    try
+	    {
+		File fileToPrint = new File("archivo.txt");
+		Desktop.getDesktop().print(fileToPrint);
+	    } catch (Exception e)
+	    {
+		JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+		e.printStackTrace();
+	    }
 	} catch (Exception e)
 	{
 	    e.printStackTrace();

@@ -26,8 +26,9 @@ public class Btn_Adicionales extends JButton
     public void showPanel(int cantidad)
     {
 	combos = new ArrayList<>();
+	adicionales.clear();
 	panel = new JFrame();
-	panel.setSize(700, 700);
+	panel.setSize(500, 700);
 	panel.getContentPane().setBackground(Apariencia.background_amarillo);
 	panel.setLocationRelativeTo(null);
 	panel.setLayout(new GridLayout(10, 1, 1, 1));

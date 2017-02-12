@@ -103,15 +103,14 @@ public class Panel_Baja extends JPanel
 	add(lblCodigo, "1, 3");
 	lblCodigo.setVisible(false);
 
-	codigo = new JTextField();
+	codigo = new JTextField(6);
 	codigo.setVisible(false);
-	codigo.setColumns(10);
 	codigo.addKeyListener(new KeyAdapter()
 	{
 	    public void keyTyped(KeyEvent e)
 	    {
 		char caracter = e.getKeyChar();
-		if (!Character.isDigit(caracter))
+		if (!Character.isDigit(caracter) || (codigo.getText().length() > 6))
 		{
 		    e.consume();
 		}
@@ -144,14 +143,13 @@ public class Panel_Baja extends JPanel
 	add(lblPrecio, "1, 7");
 	lblPrecio.setVisible(false);
 
-	precio = new JTextField();
-	precio.setColumns(10);
+	precio = new JTextField(10);
 	precio.addKeyListener(new KeyAdapter()
 	{
 	    public void keyTyped(KeyEvent e)
 	    {
 		char caracter = e.getKeyChar();
-		if (!Character.isDigit(caracter))
+		if ((!Character.isDigit(caracter)) || (precio.getText().length() > 6))
 		{
 		    e.consume();
 		}
@@ -233,6 +231,7 @@ public class Panel_Baja extends JPanel
 		    if (!verificarCodigo(Integer.parseInt(codigo.getText())))
 		    {
 			modificar();
+			btnRefrescar.setEnabled(true);
 			try
 			{
 			    Principal.getDatos();
@@ -240,12 +239,13 @@ public class Panel_Baja extends JPanel
 			{
 			    JOptionPane.showMessageDialog(Panel_Baja.this, "Error el actualizar la base de datos");
 			}
-			btnRefrescar.setEnabled(true);
+
 		    } else
 			JOptionPane.showMessageDialog(Panel_Baja.this, "Codigo de producto repetido");
 		} else
 		{
 		    modificar();
+		    btnRefrescar.setEnabled(true);
 		    try
 		    {
 			Principal.getDatos();

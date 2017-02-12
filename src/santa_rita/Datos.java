@@ -113,21 +113,22 @@ public class Datos
 	    for (Producto producto : pedido_cliente)
 	    {
 		if (producto.isMedia())
-		{
 		    print.write("  1/2 ");
-		    print.write("\t" + producto.getCodigo() + "\t" + producto.getDescripcion());
-		} else
-		{
+		else
 		    print.write("  " + producto.getCantidad() + " ");
-		    print.write("\t" + producto.getCodigo() + "\t" + producto.getDescripcion());
-		    for (String ad : producto.getAdicionales())
-		    {
-			print.write("\r\n\t" + ad);
-		    }
+
+		print.write("\t" + producto.getCodigo() + "\t" + producto.getDescripcion());
+		for (String ad : producto.getAdicionales())
+		{
+		    print.write("\r\n\t" + ad);
 		}
 		if (producto.isParaDespues())
 		{
 		    print.write("\r\n\t\tPARA DESPUES");
+		}
+		if (producto.isCeliaco())
+		{
+		    print.write("\r\n\t\tCELIACO");
 		}
 		print.write("\r\n----------------------------------\r\n");
 	    }
@@ -154,21 +155,22 @@ public class Datos
 	    for (Producto producto : pedido_cliente)
 	    {
 		if (producto.isMedia())
-		{
 		    print.write("  1/2 ");
-		    print.write("\t" + producto.getCodigo() + "\t" + producto.getDescripcion());
-		} else
-		{
+		else
 		    print.write("  " + producto.getCantidad() + " ");
-		    print.write("\t" + producto.getCodigo() + "\t" + producto.getDescripcion());
-		    for (String ad : producto.getAdicionales())
-		    {
-			print.write("\r\n\t" + ad);
-		    }
+
+		print.write("\t" + producto.getCodigo() + "\t" + producto.getDescripcion());
+		for (String ad : producto.getAdicionales())
+		{
+		    print.write("\r\n\t" + ad);
 		}
 		if (producto.isParaDespues())
 		{
 		    print.write("\r\n\t\tPARA DESPUES");
+		}
+		if (producto.isCeliaco())
+		{
+		    print.write("\r\n\t\tCELIACO");
 		}
 		print.write("\r\n----------------------------------\r\n");
 	    }

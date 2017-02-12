@@ -106,7 +106,7 @@ public class AutoCompleteTextField extends JTextField
 	    ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
 		    RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 	    g.setColor(new Color(135, 135, 135));
-	    g.drawString(hint, 0, 0);
+	    g.drawString(hint, 20, 20);
 	}
     }
 }

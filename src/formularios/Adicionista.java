@@ -1,10 +1,14 @@
 package formularios;
 
+import java.awt.Desktop;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
@@ -63,6 +67,7 @@ public class Adicionista extends JPanel
 		"Postres");
 
 	btnConfirmar = new JButton("Confirmar pedido");
+	btnConfirmar.setFont(btnConfirmar.getFont().deriveFont(Font.BOLD));
 	btnConfirmar.addActionListener(new ActionListener()
 	{
 	    @Override
@@ -87,6 +92,15 @@ public class Adicionista extends JPanel
     public void print()
     {
 	Datos.getInstance().imprimirPedido();
+	try
+	{
+	    File fileToPrint = new File("archivo.txt");
+	    Desktop.getDesktop().print(fileToPrint);
+	} catch (Exception e)
+	{
+	    JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+	    e.printStackTrace();
+	}
 	Datos.getInstance().remove();
 	clear();
     }
