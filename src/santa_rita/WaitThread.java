@@ -55,7 +55,6 @@ public class WaitThread implements Runnable
 	    return;
 	}
 
-	// waiting for connection
 	while (true)
 	{
 	    try
@@ -63,8 +62,8 @@ public class WaitThread implements Runnable
 		System.out.println("waiting for connection...");
 		connection = notifier.acceptAndOpen();
 
-		Thread processThread = new Thread(new ProcessConnectionThread(connection));
-		processThread.start();
+		ProcessConnectionThread processThread = new ProcessConnectionThread(connection);
+		processThread.run();
 
 	    } catch (Exception e)
 	    {

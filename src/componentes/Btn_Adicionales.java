@@ -48,7 +48,8 @@ public class Btn_Adicionales extends JButton
 	    {
 		for (ComboAdicionales combo : combos)
 		{
-		    adicionales.add(combo.getSelected());
+		    if (!combo.getSelected().equals("--- - Sin adicional"))
+			adicionales.add(combo.getSelected());
 		}
 		panel.dispose();
 	    }

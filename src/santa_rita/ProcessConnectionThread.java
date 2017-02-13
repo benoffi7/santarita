@@ -58,7 +58,8 @@ public class ProcessConnectionThread implements Runnable
 		    for (z = 0; z < adicionales.length; z++)
 		    {
 			Item adicional = Datos.getInstance().searchAdicional(Integer.parseInt(adicionales[z]));
-			producto.addAdicionales(adicional.getDescripcion());
+			if (!adicional.getDescripcion().equals("Solo"))
+			    producto.addAdicionales(adicional.getCodigo() + "\t" + adicional.getDescripcion());
 		    }
 		}
 		pps.add(producto);
@@ -66,7 +67,7 @@ public class ProcessConnectionThread implements Runnable
 	    Datos.getInstance().imprimirPPS(pps);
 	    try
 	    {
-		File fileToPrint = new File("archivo.txt");
+		File fileToPrint = new File("archivoandroid.txt");
 		Desktop.getDesktop().print(fileToPrint);
 	    } catch (Exception e)
 	    {
@@ -75,6 +76,7 @@ public class ProcessConnectionThread implements Runnable
 	    }
 	} catch (Exception e)
 	{
+	    System.out.println("Error processThread. " + e.getMessage());
 	    e.printStackTrace();
 	}
     }
