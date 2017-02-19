@@ -1,5 +1,6 @@
 package formularios;
 
+import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -8,6 +9,7 @@ import java.io.File;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
@@ -26,14 +28,43 @@ public class Adicionista extends JPanel
     private Panel_Items platos_celiacos;
     private Panel_Items platos_postres;
     private JButton btnConfirmar;
+    private JCheckBox paraLlevar;
 
     public Adicionista()
     {
 	setBackground(Apariencia.background_amarillo);
 	setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-	JTabbedPane pestanias = new JTabbedPane(JTabbedPane.LEFT);
-	// pestanias.setFont(Fuentes.labels);
 
+	JPanel panel = new JPanel();
+	panel.setBackground(Apariencia.background_amarillo);
+	btnConfirmar = new JButton("Confirmar pedido");
+	btnConfirmar.setFont(btnConfirmar.getFont().deriveFont(Font.BOLD));
+	btnConfirmar.addActionListener(new ActionListener()
+	{
+	    @Override
+	    public void actionPerformed(ActionEvent e)
+	    {
+		platos_calientes.getPedidos();
+		platos_frios.getPedidos();
+		platos_plancha.getPedidos();
+		platos_frituras.getPedidos();
+		platos_ensaladas.getPedidos();
+		platos_otros.getPedidos();
+		platos_celiacos.getPedidos();
+		platos_postres.getPedidos();
+		Datos.getInstance().setParaLlevar(paraLlevar.isSelected());
+		print();
+		paraLlevar.setSelected(false);
+	    }
+	});
+	panel.add(btnConfirmar);
+
+	paraLlevar = new JCheckBox("Pedido para llevar");
+	panel.add(paraLlevar);
+
+	add(panel);
+
+	JTabbedPane pestanias = new JTabbedPane(JTabbedPane.LEFT);
 	platos_calientes = new Panel_Items("Platos calientes");
 	pestanias.addTab("<html><body><table width='200'>Platos calientes</table></body></html>", null,
 		platos_calientes, "Platos calientes");
@@ -66,25 +97,8 @@ public class Adicionista extends JPanel
 	pestanias.addTab("<html><body><table width='200'>Postres</table></body></html>", null, platos_postres,
 		"Postres");
 
-	btnConfirmar = new JButton("Confirmar pedido");
-	btnConfirmar.setFont(btnConfirmar.getFont().deriveFont(Font.BOLD));
-	btnConfirmar.addActionListener(new ActionListener()
-	{
-	    @Override
-	    public void actionPerformed(ActionEvent e)
-	    {
-		platos_calientes.getPedidos();
-		platos_frios.getPedidos();
-		platos_plancha.getPedidos();
-		platos_frituras.getPedidos();
-		platos_ensaladas.getPedidos();
-		platos_otros.getPedidos();
-		platos_celiacos.getPedidos();
-		platos_postres.getPedidos();
-		print();
-	    }
-	});
-	add(btnConfirmar);
+	pestanias.setBackgroundAt(1, Color.BLACK);
+
 	// Agregar objeto JTabbedPane al contenedor
 	add(pestanias);
     }

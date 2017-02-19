@@ -7,6 +7,7 @@ public class Producto
     private Item item;
     private int cantidad;
     private boolean media_porcion;
+    private int precio_media;
     private boolean para_despues;
     private ArrayList<String> adicionales;
 
@@ -62,6 +63,19 @@ public class Producto
     public void setMedia(boolean media)
     {
 	this.media_porcion = media;
+	if(media) {
+	    setPrecio_media(calcularMedia(item.getPrecio()));
+	}
+    }
+
+    public int getPrecio_media()
+    {
+        return precio_media;
+    }
+
+    public void setPrecio_media(int precio_media)
+    {
+        this.precio_media = precio_media;
     }
 
     public boolean isParaDespues()
@@ -95,5 +109,20 @@ public class Producto
 	    return true;
 	else
 	    return false;
+    }
+    
+    private int calcularMedia(int precio) {
+	float por = ((float)precio/100)*70;
+	int total = (int) por;
+	int resto = (int) (total%5);
+	if(resto!=0) {
+	    if(resto<3) {
+		total = total - resto;	
+	    }
+	    else {
+		 total = total + (5-resto);	
+	    }
+	}
+	return total;
     }
 }

@@ -10,7 +10,8 @@ public abstract class Apariencia
     static
     {
 	background_paneles = new Color(0, 0, 0, 0);
-	background_amarillo = new Color(255, 212, 37);
+	background_amarillo = new Color(250,244,227);
+		//new Color(255, 212, 37);
     }
 
     public static String capitalizeString(String string)

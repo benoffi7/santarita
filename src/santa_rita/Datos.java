@@ -16,6 +16,8 @@ public class Datos
     private ArrayList<Item> adicionales;
     // Seleccionados en el panel
     private ArrayList<Producto> pedido_cliente;
+    // Pedido para llevar
+    private boolean paraLlevar;
 
     public Datos()
     {
@@ -87,6 +89,16 @@ public class Datos
 	return pedido_cliente;
     }
 
+    public boolean isParaLlevar()
+    {
+	return paraLlevar;
+    }
+
+    public void setParaLlevar(boolean paraLlevar)
+    {
+	this.paraLlevar = paraLlevar;
+    }
+
     public void remove()
     {
 	pedido_cliente.clear();
@@ -108,12 +120,14 @@ public class Datos
 	{
 	    print = new PrintWriter(new FileWriter(fichero));
 	    print.write("\tMARISQUERIA SANTA RITA\r\n");
+	    if (paraLlevar)
+		print.write("\tPEDIDO PARA LLEVAR\r\n");
 	    print.write("\t" + fecha.toLocaleString() + "\r\n\r\n");
 	    print.write(" Cant\tCod\tDescripción\r\n\r\n");
 	    for (Producto producto : pedido_cliente)
 	    {
 		if (producto.isMedia())
-		    print.write("  1/2 ");
+		    print.write(" $" + producto.getPrecio_media());
 		else
 		    print.write("  " + producto.getCantidad() + " ");
 
@@ -155,7 +169,7 @@ public class Datos
 	    for (Producto producto : pedido_cliente)
 	    {
 		if (producto.isMedia())
-		    print.write("  1/2 ");
+		    print.write(" $" + producto.getPrecio_media());
 		else
 		    print.write("  " + producto.getCantidad() + " ");
 

@@ -1,10 +1,21 @@
 	MARISQUERIA SANTA RITA
-	12-feb-2017 16:23:46
+	PEDIDO PARA LLEVAR
+	18-feb-2017 21:20:41
 
  Cant	Cod	Descripción
 
-  1 	19	Cazuela De Mariscos
+ $110	19	Cazuela De Mariscos
+----------------------------------
+ $335	257	Cazuela De Pulpo
+----------------------------------
+  3 	181	Mejillones A La Recanatti
 		PARA DESPUES
 ----------------------------------
-  1/2 	257	Cazuela De Pulpo
+  1 	23	Fideos Con Mariscos
+	254 - Manteca Negra
+----------------------------------
+  3 	29	Fideos Con Mejillones
+	253 - Salsa De Verdeo
+	1000 - Fileto
+	1003 - Provenzal
 ----------------------------------

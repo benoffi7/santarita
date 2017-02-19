@@ -1,6 +1,16 @@
 	MARISQUERIA SANTA RITA
-	15-ene-2017 21:25:33
+	12-feb-2017 23:06:20
 
  Cant	Cod	Descripción
 
-  1 	26	Arroz blanco
+  1 	122	Arroz Con Langostinos
+----------------------------------
+  1 	10	Calamar A La Criolla
+----------------------------------
+  1/2 	78	Calamarettes
+	254	Manteca Negra
+----------------------------------
+  3 	140	Besugo
+	254	Manteca Negra
+	256	Roquefort
+----------------------------------
